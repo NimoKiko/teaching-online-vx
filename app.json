@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/lesson/lesson",
     "pages/home/home",
+    "pages/lesson/lesson",
     "pages/login/login",
     "pages/reigister/register",
     "pages/index/index",

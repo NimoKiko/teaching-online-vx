@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 顶部导航栏 -->
   <view class="tab">
-  <!-- #2D88CE -->
+    <!-- #2D88CE -->
     <text class="tabText" id="page1" style="color:{{fontColor1}};" bindtap="changePage1">课堂</text>
     <text class="tabText" id="page2" style="color:{{fontColor2}};" bindtap="changePage2">章节</text>
     <text class="tabText" id="page3" style="color:{{fontColor3}};" bindtap="changePage3">资料</text>
@@ -13,7 +13,6 @@
     <view class="page1" wx:if="{{pageNum == 1}}">
       <view class="classBox" style="margin-top: 30rpx;">
         <view class="iconBox">
-          <!-- <view class="icon_background"></view> -->
           <image class="img" src="../../img/icon/ketang_icon.png"></image>
         </view>
         <text class="text">课堂</text>
@@ -26,6 +25,37 @@
         </view>
         <text class="text">作业</text>
         <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
+      </view>
+    </view>
+    <!-- 章节页面 -->
+    <view class="page2" wx:if="{{pageNum == 2}}">
+      <view class="contentBox" wx:for="{{section}}" wx:key="id">
+        <!-- 大章的部分 -->
+        <view class="section_titleBox">
+          <image class="switch_icon" src="../../img/icon/switch_icon.png"></image>
+          <image class="line_icon" src="../../img/icon/line_icon.png"></image>
+          <text class="sectionTitleText">{{item.title}}</text>
+        </view>
+        <!-- 小节的部分 -->
+        <view class="section_contentBox" wx:for="{{section[index].children}}" wx:key="id">
+          <image class="circle_icon" src="../../img/icon/circle_icon.png"></image>
+          <image class="line_icon" src="../../img/icon/line_icon.png"></image>
+          <text class="sectionSubtitleText">{{item.subTitle}}</text>
+          <view class="separator"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 资料页面 -->
+    <view class="page3" wx:if="{{pageNum == 3}}">
+      <view class="fileBox" wx:for="{{file}}">
+        <view class="file_icon_background" wx:if="{{item.fileType == 1}}">
+          <image  class="file_icon" src="../../img/icon/word_icon.png"></image>
+        </view>
+        <view class="file_icon_background" wx:if="{{item.fileType == 2}}" style="background-color: #E65C5C;">
+          <image  class="file_icon" src="../../img/icon/pdf_icon.png"></image>
+        </view>
+        <text class="fileNameText">{{item.fileName}}</text>
+        <image class="gotoFile" src="../../img/icon/goto_icon.png"></image>
       </view>
     </view>
   </view>
