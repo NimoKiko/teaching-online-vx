@@ -1,2 +1,13 @@
 <!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view class="container">
+  <view class="messageBox" wx:for="{{message}}" wx:key="id">
+    <view class="textBox_background" wx:if="{{item.type == 1}}">
+      <text class="titleText">课程</text>
+    </view>
+    <view class="textBox_background" wx:if="{{item.type == 2}}" style="background-color: #0EBF8A;">
+      <text class="titleText">作业</text>
+    </view>
+    <text class="messageText">{{item.title}}</text>
+    <image class="gotoMessage" src="../../img/icon/goto_icon.png"></image>
+  </view>
+</view>

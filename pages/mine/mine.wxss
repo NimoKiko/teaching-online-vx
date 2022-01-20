@@ -1,1 +1,37 @@
 /* pages/mine/mine.wxss */
+.container{
+  background-color: #F0F0F0;
+}
+.topBox{
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 240rpx;
+  background-color: white;
+  position: relative;
+}
+.pesonal-picture{
+  overflow: hidden;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  height: 120rpx;
+  width: 120rpx;
+  left:150rpx ;
+  top:60rpx;
+}
+.nickName{
+  font-size: 36rpx;
+  color: #464646;
+  font-weight: bold;
+  position: absolute;
+  left:300rpx ;
+  top:100rpx;
+}
+.gotoPersonal{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 100rpx;
+}

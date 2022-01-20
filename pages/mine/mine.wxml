@@ -1,2 +1,8 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="container">
+  <view class="topBox">
+    <open-data type="userAvatarUrl" class="pesonal-picture"></open-data>
+    <open-data type="userNickName" class="nickName"></open-data>
+    <image class="gotoPersonal" src="../../img/icon/goto_icon.png"></image>
+  </view>
+</view>

@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    message:[
+      {
+        id:1,
+        type:1,
+        title:"编译原理"
+      },
+      {
+        id:2,
+        type:2,
+        title:"作业通知"
+      },
+      {
+        id:3,
+        type:1,
+        title:"需求工程"
+      },
+    ]
   },
 
   /**

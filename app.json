@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/mine/mine",
+    "pages/message/message",
     "pages/home/home",
     "pages/lesson/lesson",
     "pages/login/login",
     "pages/reigister/register",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/message/message",
-    "pages/mine/mine",
     "pages/section/section"
   ],
   "window": {
