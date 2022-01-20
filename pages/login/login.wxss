@@ -1,0 +1,68 @@
+/* pages/login/login.wxss */
+.container {
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.firstBox{
+  /* border: 1px solid aqua; */
+  width: 100%;
+  height: 25%;
+  position: relative;
+}
+.title{
+  /* border: 1px springgreen solid; */
+  font-size: 72rpx;
+  color: #464646;
+  position: absolute;
+  bottom: 0rpx;
+  left: 100rpx;
+}
+.middleBox{
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 300rpx;
+  position: absolute;
+  top: 28%;
+}
+.account{
+  /* border: 1px solid green; */
+  margin-left: 90rpx;
+  margin-top: 40rpx;
+  height: 65rpx;
+}
+.password{
+  /* border: 1px solid green; */
+  margin-left: 90rpx;
+  margin-top: 35rpx;
+  height: 65rpx;
+}
+.separator{
+  border: 1rpx solid #D2D2D2;
+  width: 80%;
+  margin-top: 5rpx;
+}
+.protocol{
+    /* border: 1px solid green; */
+    margin-left: 90rpx;
+    margin-top: 10rpx;
+}
+radio{
+  font-size: 28rpx;
+}
+.bottomBox{
+  /* border: 1px solid red; */
+  width: 100%;
+  position: absolute;
+  bottom: 33%;
+}
+.registerBox{
+  /* border: 1px solid salmon; */
+  width: fit-content;
+  margin: 10rpx auto;
+  font-size: 24rpx;
+  color: #308cc9;
+}

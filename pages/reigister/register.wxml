@@ -1,0 +1,43 @@
+<!--pages/reigister/register.wxml-->
+<view class="container">
+  <view class="firstBox">
+    <view class="title">欢迎注册</view>
+    <view class="subTitle">上海第二工业大学</view>
+  </view>
+  <view class="middleBox">
+    <view class="account">
+      <input v-model="input" placeholder="请输入学号/工号"></input>
+      <view class="separator"></view>
+    </view>
+    <view class="password">
+      <input v-model="input" placeholder="请输入密码"></input>
+      <view class="separator"></view>
+    </view>
+    <view class="charactorBox">
+      <!-- 角色选择器 -->
+      <picker bindchange="charactorPickerChange" value="{{charactorIndex}}" range="{{charactor}}">
+        <view class="picker">
+          <view class="text">请选择角色：</view>
+          <text decode="true" class="selectBox">&nbsp;{{charactor[charactorIndex]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="deptBox">
+    <!-- 院系选择器 -->
+    <picker bindchange="deptPickerChange" value="{{deptIndex}}" range="{{dept}}" style="margin-top: 45rpx;">
+        <view class="picker">
+          <view class="text">请选择院系：</view>
+          <text decode="true" class="selectBox">&nbsp;{{dept[deptIndex]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="protocol">
+      <radio v-model="protocolRadio" label="1" size="large">已阅读《协议》
+      </radio>
+    </view>
+  </view>
+  <view class="registerBox">
+    <button bindtap="gotoLogin" style="width:235px;height:47px;font-size:18px;background-color:#46A1DD;color: white;">注 册</button>
+  </view>
+
+</view>

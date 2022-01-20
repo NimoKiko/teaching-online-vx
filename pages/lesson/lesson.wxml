@@ -1,0 +1,33 @@
+<!--pages/lesson/lesson.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="tab">
+  <!-- #2D88CE -->
+    <text class="tabText" id="page1" style="color:{{fontColor1}};" bindtap="changePage1">课堂</text>
+    <text class="tabText" id="page2" style="color:{{fontColor2}};" bindtap="changePage2">章节</text>
+    <text class="tabText" id="page3" style="color:{{fontColor3}};" bindtap="changePage3">资料</text>
+  </view>
+  <!-- 下方切换的页面 -->
+  <view class="pageBox">
+    <!-- 课堂页面 -->
+    <view class="page1" wx:if="{{pageNum == 1}}">
+      <view class="classBox" style="margin-top: 30rpx;">
+        <view class="iconBox">
+          <!-- <view class="icon_background"></view> -->
+          <image class="img" src="../../img/icon/ketang_icon.png"></image>
+        </view>
+        <text class="text">课堂</text>
+        <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
+      </view>
+      <view class="classBox" style="margin-top: 40rpx;">
+        <view class="iconBox">
+          <!-- <view class="icon_background"></view> -->
+          <image class="img" src="../../img/icon/paper_icon.png"></image>
+        </view>
+        <text class="text">作业</text>
+        <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
+      </view>
+    </view>
+  </view>
+
+</view>
