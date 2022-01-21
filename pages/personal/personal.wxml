@@ -1,0 +1,21 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+  <view class="topBox">
+    <open-data type="userAvatarUrl" class="pesonal-picture"></open-data>
+  </view>
+  <view class="content">
+    <view class="rowBox">
+      <text class="Title">姓名</text>
+      <input class="inputName" type="text" placeholder="请输入姓名"></input>
+      <view class="separator"></view>
+    </view>
+    <view class="rowBox" style="margin-top: 30rpx;">
+      <text class="Title">性别</text>
+      <radio-group class="radio-group">
+        <radio>男</radio>
+        <radio>女</radio>
+      </radio-group>
+    </view>
+  </view>
+  <button class="sure" bindtap="save">确定</button>
+</view>

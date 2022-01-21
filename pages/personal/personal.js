@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/personal/personal.js
 Page({
 
   /**
@@ -8,21 +8,9 @@ Page({
 
   },
 
-  gotoHome: function(){
+  save:function(){
     wx.switchTab({
-      url: '/pages/home/home',
-    })
-  },
-
-  gotoLogin: function(){
-    wx.navigateTo({
-      url: '/pages/login/login',
-    })
-  },
-
-  gotoPersonal: function(){
-    wx.navigateTo({
-      url: '/pages/personal/personal',
+      url: '/pages/mine/mine',
     })
   },
 

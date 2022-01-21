@@ -1,0 +1,10 @@
+<!--pages/homeworkIndex/homeworkIndex.wxml-->
+<view class="container">
+  <view class="homeworkBox" wx:for="{{homeworkList}}" wx:key="id" bindtap="gotoHomework">
+    <view class="textBox_background">
+      <text class="titleText">作业</text>
+    </view>
+    <text class="homeworkText">{{item.title}}</text>
+    <image class="gotoHomeworkDetail" src="../../img/icon/goto_icon.png"></image>
+  </view>
+</view>

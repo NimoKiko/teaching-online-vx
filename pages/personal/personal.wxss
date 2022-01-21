@@ -1,0 +1,74 @@
+/* pages/personal/personal.wxss */
+.topBox {
+  width: 100%;
+  height: 300rpx;
+  /* border: 1px solid red; */
+  position: relative;
+}
+
+.pesonal-picture {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  height: 120rpx;
+  width: 120rpx;
+  left: 325rpx;
+  top: 100rpx;
+}
+
+.content {
+  width: 100%;
+  height: 30%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rowBox {
+  width: 80%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid orange; */
+  position: relative;
+}
+
+.Title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #464646;
+}
+
+.inputName {
+  margin-left: 30rpx;
+}
+
+.separator {
+  width: 80%;
+  border: 1px solid rgb(224, 224, 224);
+  position: absolute;
+  bottom: 0;
+  left: 90rpx;
+}
+.radio-group{
+  margin-left: 30rpx;
+  width: 500rpx;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+}
+radio{
+  flex-grow: 0.4;
+}
+.sure{
+  background-color:#60bb95;
+  color: white; 
+  width: 440rpx;
+  position: absolute;
+  bottom: 100rpx;
+  border-radius: 20rpx;
+}

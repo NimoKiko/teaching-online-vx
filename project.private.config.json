@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/homework/homework",
+          "pathName": "pages/homework/homework",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

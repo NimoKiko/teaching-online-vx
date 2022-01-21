@@ -1,28 +1,29 @@
-// pages/mine/mine.js
+// pages/homeworkIndex/homeworkIndex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    homeworkList:[
+      {
+        id:1,
+        title:"作业1"
+      },
+      {
+        id:2,
+        title:"作业2"
+      },
+      {
+        id:3,
+        title:"作业3"
+      },
+    ]
   },
 
-  gotoHome: function(){
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
-  },
-
-  gotoLogin: function(){
+  gotoHomework:function (){
     wx.navigateTo({
-      url: '/pages/login/login',
-    })
-  },
-
-  gotoPersonal: function(){
-    wx.navigateTo({
-      url: '/pages/personal/personal',
+      url: '/pages/homework/homework',
     })
   },
 

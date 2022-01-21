@@ -1,29 +1,14 @@
-// pages/mine/mine.js
+// pages/homework/homework.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
-  gotoHome: function(){
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
-  },
-
-  gotoLogin: function(){
-    wx.navigateTo({
-      url: '/pages/login/login',
-    })
-  },
-
-  gotoPersonal: function(){
-    wx.navigateTo({
-      url: '/pages/personal/personal',
-    })
+    taskName:"作业一",
+    deadline:"2022-01-21",
+    status:0,
+    score:100
   },
 
   /**

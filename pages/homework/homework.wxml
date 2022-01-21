@@ -1,0 +1,18 @@
+<!--pages/homework/homework.wxml-->
+<view class="container">
+  <view class="topBox">
+    <text class="taskName">{{taskName}}</text>
+    <text class="deadlineText">截止时间</text>
+    <text class="time">{{deadline}}</text>
+    <view class="separator"></view>
+  </view>
+  <!-- 未完成作业显示进入作业详情的按钮 -->
+  <view class="content" wx:if="{{status == 0}}">
+    <button class="homeworkDetail">查看详情</button>
+  </view>
+  <!-- 完成的作业显示作业的分数 -->
+  <view class="content" wx:if="{{status == 1}}">
+    <text class="score">{{score}}</text>
+    <text class="text">分</text>
+  </view>
+</view>

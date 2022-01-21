@@ -35,3 +35,46 @@
   right: 40rpx;
   top: 100rpx;
 }
+.middleBox{
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 60%;
+}
+.taskBox{
+  margin-top: 30rpx;
+  background-color: white;
+  box-shadow: 0 0 6rpx 6rpx rgb(221, 221, 221);
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+}
+.lesson_icon{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 50rpx;
+  top: 45rpx;
+}
+.text{
+  color: #464646;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: absolute;
+  left: 140rpx;
+  top: 55rpx;
+}
+.goto_icon{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 55rpx;
+}
+.cancel{
+  background-color:#FF6666;
+  color: white; 
+  width: 440rpx;
+  position: absolute;
+  bottom: 100rpx;
+  border-radius: 20rpx;
+}

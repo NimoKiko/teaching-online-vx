@@ -18,7 +18,7 @@
         <text class="text">课堂</text>
         <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
       </view>
-      <view class="classBox" style="margin-top: 40rpx;">
+      <view class="classBox" style="margin-top: 40rpx;" bindtap="gotoHomeworkIndex">
         <view class="iconBox">
           <!-- <view class="icon_background"></view> -->
           <image class="img" src="../../img/icon/paper_icon.png"></image>
@@ -47,7 +47,7 @@
     </view>
     <!-- 资料页面 -->
     <view class="page3" wx:if="{{pageNum == 3}}">
-      <view class="fileBox" wx:for="{{file}}">
+      <view class="fileBox" wx:for="{{file}}" wx:key="id">
         <view class="file_icon_background" wx:if="{{item.fileType == 1}}">
           <image  class="file_icon" src="../../img/icon/word_icon.png"></image>
         </view>

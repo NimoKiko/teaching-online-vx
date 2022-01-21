@@ -1,0 +1,49 @@
+/* pages/homeworkIndex/homeworkIndex.wxss */
+.container{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+.homeworkBox{
+  width: 100%;
+  height: 120rpx;
+  /* border: 1px solid red; */
+  box-shadow: 0 1rpx 1rpx 1rpx rgb(224, 224, 224);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.textBox_background{
+    /* border: 1px solid firebrick; */
+    background-color: #0EBF8A;
+    border-radius: 10rpx;
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 20rpx;
+    left: 30rpx;
+    text-align: center;
+    line-height: 75rpx;
+}
+.titleText{
+  color: white;
+  font-size: 29rpx;
+  /* margin-left: 4px; */
+  /* border: 1px springgreen solid; */
+}
+.homeworkText{
+  position: absolute;
+  top: 35rpx;
+  left: 130rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #464646;
+}
+
+.gotoHomeworkDetail{
+  width: 48rpx;
+  height: 48rpx;
+  position:absolute;
+  top: 35rpx;
+  right: 30rpx;
+}

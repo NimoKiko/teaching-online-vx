@@ -3,6 +3,14 @@
   <view class="topBox">
     <open-data type="userAvatarUrl" class="pesonal-picture"></open-data>
     <open-data type="userNickName" class="nickName"></open-data>
-    <image class="gotoPersonal" src="../../img/icon/goto_icon.png"></image>
+    <image class="gotoPersonal" src="../../img/icon/goto_icon.png" bindtap="gotoPersonal"></image>
   </view>
+  <view class="middleBox">
+    <view class="taskBox" bindtap="gotoHome">
+      <image class="lesson_icon" src="../../img/icon/schedule_icon.png"></image>
+      <text class="text">课程</text>
+      <image class="goto_icon" src="../../img/icon/goto_icon.png"></image>
+    </view>
+  </view>
+  <button class="cancel" bindtap="gotoLogin">退出登录</button>
 </view>
