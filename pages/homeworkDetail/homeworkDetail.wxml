@@ -1,0 +1,15 @@
+<!--pages/homeworkDetail/homeworkDetail.wxml-->
+<view class="container">
+  <view class="titleBox">
+    <text class="num">1.(单选题)</text>
+    <text class="context">在操作系统中，JCB是指（ ）。</text>
+  </view>
+  <view class="choice">
+    <radio-group>
+      <radio>A.</radio>
+      <radio>B.</radio>
+      <radio>C.</radio>
+      <radio>D.</radio>
+    </radio-group>
+  </view>
+</view>

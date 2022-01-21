@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/homeworkDetail/homeworkDetail",
     "pages/home/home",
     "pages/homework/homework",
     "pages/personal/personal",
     "pages/mine/mine",
     "pages/message/message",
-
     "pages/lesson/lesson",
     "pages/login/login",
     "pages/reigister/register",
@@ -13,6 +13,7 @@
     "pages/logs/logs",
     "pages/section/section",
     "pages/homeworkIndex/homeworkIndex"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
