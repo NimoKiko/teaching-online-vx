@@ -1,15 +1,20 @@
 <!--pages/homeworkDetail/homeworkDetail.wxml-->
 <view class="container">
   <view class="titleBox">
-    <text class="num">1.(单选题)</text>
-    <text class="context">在操作系统中，JCB是指（ ）。</text>
+    <text class="num">{{homework[num].id}}.(单选题)</text>
+    <text class="context">{{homework[num].text}}</text>
   </view>
   <view class="choice">
-    <radio-group>
-      <radio>A.</radio>
-      <radio>B.</radio>
-      <radio>C.</radio>
-      <radio>D.</radio>
+    <radio-group checked="0">
+      <radio bindtap="aClick" checked="{{homework[num].achecked}}">A.{{homework[num].a}}</radio>
+      <radio bindtap="bClick" checked="{{homework[num].bchecked}}">B.{{homework[num].b}}</radio>
+      <radio bindtap="cClick" checked="{{homework[num].cchecked}}">C.{{homework[num].c}}</radio>
+      <radio bindtap="dClick" checked="{{homework[num].dchecked}}">D.{{homework[num].c}}</radio>
     </radio-group>
+  </view>
+  <view class="bottomBox">
+    <button class="pre" hover-class="hover" bindtap="preClick">上一题</button>
+    <button class="next" hover-class="hover" wx:if="{{!homework[num].end}}" bindtap="nextClick">下一题</button>
+    <button class="next" hover-class="hover" wx:if="{{homework[num].end}}">提交</button>
   </view>
 </view>

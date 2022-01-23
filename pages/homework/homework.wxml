@@ -8,7 +8,7 @@
   </view>
   <!-- 未完成作业显示进入作业详情的按钮 -->
   <view class="content" wx:if="{{status == 0}}">
-    <button class="homeworkDetail">查看详情</button>
+    <button class="homeworkDetail" bindtap="gotoDetail">查看详情</button>
   </view>
   <!-- 完成的作业显示作业的分数 -->
   <view class="content" wx:if="{{status == 1}}">

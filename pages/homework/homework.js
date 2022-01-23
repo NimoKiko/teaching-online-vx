@@ -10,6 +10,11 @@ Page({
     status:0,
     score:100
   },
+  gotoDetail:function(){
+    wx.navigateTo({
+      url: '/pages/homeworkDetail/homeworkDetail',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/homeworkDetail/homeworkDetail",
     "pages/home/home",
+    "pages/login/login",
+    "pages/homeworkDetail/homeworkDetail",
     "pages/homework/homework",
     "pages/personal/personal",
     "pages/mine/mine",
     "pages/message/message",
     "pages/lesson/lesson",
-    "pages/login/login",
     "pages/reigister/register",
     "pages/index/index",
     "pages/logs/logs",

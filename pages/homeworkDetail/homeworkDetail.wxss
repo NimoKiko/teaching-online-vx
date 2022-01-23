@@ -1,1 +1,49 @@
 /* pages/homeworkDetail/homeworkDetail.wxss */
+.container{
+  /* border: 1px solid red; */
+  position: relative;
+}
+.titleBox{
+  width: 100%;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  /* border: 1px solid red; */
+}
+.num{
+  font-size:32rpx;
+}
+.context{
+  margin-left: 10rpx;
+  font-size:32rpx;
+}
+.choice{
+  width: 100%;
+  margin-top: 20rpx;
+  /* border: 1px solid red; */
+}
+radio-group{
+  display: flex;
+  flex-direction: column;
+  padding-left: 50rpx;
+}
+radio{
+  margin-top: 20rpx;
+  font-size:32rpx;
+}
+.bottomBox{
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 60rpx;
+}
+button{
+  background-color: #46A1DD;
+  color: white;
+  
+}
+.hover{
+  background-color: #3881B0;
+  color: white;
+}
