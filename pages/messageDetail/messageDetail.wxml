@@ -1,0 +1,32 @@
+<!--pages/messageDetail/messageDetail.wxml-->
+<view class="container">
+  <view class="page1" wx:if="{{type == 1}}">
+    <view class="topBox">
+      <text class="title">标题</text>
+      <text class="sendPeople">发起人</text>
+      <text class="sendTime">2022-1-17 17:39</text>
+    </view>
+    <view class="separator"></view>
+    <view class="contentBox">
+      <text class="notice">{{content}}</text>
+    </view>
+  </view>
+  <view class="page2" wx:if="{{type == 2}}">
+    <view class="topBox">
+      <text class="title">作业名称</text>
+      <text class="sendPeople">发起人</text>
+      <text class="sendTime">2022-1-17 17:39</text>
+    </view>
+    <view class="separator"></view>
+    <view class="contentBox">
+      <view class="classBox" style="margin-top: 10rpx;" bindtap="gotoHomeworkIndex">
+        <view class="iconBox">
+          <!-- <view class="icon_background"></view> -->
+          <image class="img" src="../../img/icon/paper_icon.png"></image>
+        </view>
+        <text class="text">作业</text>
+        <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

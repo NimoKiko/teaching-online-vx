@@ -1,0 +1,116 @@
+/* pages/messageDetail/messageDetail.wxss */
+.container {
+  /* border: 1px solid red; */
+}
+
+.page1 {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.page2 {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.topBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  position: absolute;
+  top: 50rpx;
+  left: 40rpx;
+}
+
+.sendPeople {
+  font-size: 28rpx;
+  color: rgb(136, 136, 136);
+  position: absolute;
+  top: 130rpx;
+  left: 45rpx;
+}
+
+.sendTime {
+  font-size: 28rpx;
+  color: rgb(136, 136, 136);
+  position: absolute;
+  top: 130rpx;
+  left: 155rpx;
+}
+
+.separator {
+  width: 90%;
+  border: 1rpx solid rgb(209, 209, 209);
+  position: absolute;
+  top: 200rpx;
+}
+.contentBox{
+  position: absolute;
+  top: 250rpx;
+  width: 90%;
+  height: 80%;
+  /* border: 1px solid red; */
+}
+
+.classBox {
+  width: 100%;
+  height: 150rpx;
+  /* border: 1px solid red; */
+  box-shadow: 0rpx 0rpx 6rpx 6rpx rgb(219, 219, 219);
+  display: flex;
+  border-radius: 10rpx;
+  flex-direction: row;
+  position: relative;
+}
+
+.iconBox {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  background-color: #0EBF8A;
+  position: absolute;
+  top: 30rpx;
+  left: 40rpx;
+  position: relative;
+}
+
+.img {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 22rpx;
+  left: 22rpx;
+}
+
+.text {
+  position: absolute;
+  top: 55rpx;
+  left: 160rpx;
+  font-size: 36rpx;
+  color: #464646;
+  font-weight: bold;
+}
+
+.gotoIcon {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 55rpx;
+  right: 30rpx;
+}
