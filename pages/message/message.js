@@ -24,6 +24,18 @@ Page({
     ]
   },
 
+  gotoMessage:function(e){
+    // console.log(e);
+    let index = e.currentTarget.dataset.num;
+    console.log(index);
+    let type = this.data.message[index].type;
+    console.log(type);
+    wx.navigateTo({
+      url: '/pages/messageDetail/messageDetail?type='+type,
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */

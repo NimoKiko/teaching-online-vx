@@ -1,6 +1,6 @@
 <!--pages/message/message.wxml-->
 <view class="container">
-  <view class="messageBox" wx:for="{{message}}" wx:key="id">
+  <view class="messageBox" wx:for="{{message}}" wx:key="id" bindtap="gotoMessage" data-num="{{index}}">
     <view class="textBox_background" wx:if="{{item.type == 1}}">
       <text class="titleText">课程</text>
     </view>
