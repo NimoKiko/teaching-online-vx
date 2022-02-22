@@ -1,4 +1,6 @@
 // pages/home/home.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
@@ -20,12 +22,16 @@ Page({
         lessonName: "编译原理",
         teacherName: "王那",
       }
-    ]
+    ],
+    role: "",
+    worknum: "",
 
   },
-  gotoLesson: function (){
+  gotoLesson: function (res) {
+    console.log(res.currentTarget.dataset.item.lessonId);
+    let lessonId = res.currentTarget.dataset.item.lessonId;
     wx.navigateTo({
-      url: '../lesson/lesson',
+      url: '../lesson/lesson?lessonId=' + lessonId,
     })
   },
 
@@ -33,7 +39,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let userId = app.globalData.userId;
+    let role = app.globalData.role;
+    this.setData({
+      role: role,
+      worknum: userId,
+    })
+    if (role == "TEACHER") {
+      let r = new request("/teaLesson/getList", {
+        worknum: userId
+      });
+      r.get().then(res => {
+        console.log(res.data);
+        this.setData({
+          lesson: res.data
+        })
+      })
+    }
+    if(role == "STUDENT"){
+      let r = new request("/stdLesson/getStudentByNum", {
+        id: userId
+      });
+      r.get().then(res => {
+        console.log(res.data);
+        this.setData({
+          lesson: res.data
+        })
+      })
+    }
 
+    console.log(userId);
   },
 
   /**

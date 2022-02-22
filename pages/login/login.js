@@ -1,21 +1,80 @@
 // pages/login/login.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loginParams: {
+      worknum: "",
+      password: "",
+      check: false,
+    }
+  },
+  //输入账号
+  accountInput: function (res) {
+    // console.log(res.detail.value);
+    let account = 'loginParams.worknum';
+    this.setData({
+      [account]: res.detail.value
+    })
+  },
+  //输入密码
+  psdInput: function (res) {
+    // console.log(res.detail.value);
+    let password = 'loginParams.password';
+    this.setData({
+      [password]: res.detail.value
+    })
+  },
+  //确认协议
+  checked: function (res) {
+    this.setData({
+      check: !this.data.check
+    })
+    console.log(this.data.check);
   },
 
   // 跳转到首页
-  toHome: function (){
-    wx.switchTab({
-      url: '../home/home',
+  toHome: function () {
+    let that = this;
+    console.log(this.data.loginParams);
+    let params = this.data.loginParams
+    let r = new request("/tea/login", params);
+    console.log(r);
+    r.post().then(res => {
+      console.log(res.data);
+      if (res.data != "ERROR" && res.data != "ADMIN") {
+        if (res.data == "TEACHER") {
+          app.globalData.role = "TEACHER";
+        }
+        if (res.data == "STUDENT") {
+          app.globalData.role = "STUDENT";
+        }
+        if (that.data.check) {
+          app.globalData.userId = that.data.loginParams.worknum;
+          wx.switchTab({
+            url: '../home/home',
+          })
+        } else {
+          wx.showToast({
+            title: '请确认协议',
+            icon: "error"
+          })
+        }
+      } else {
+        wx.showToast({
+          title: '账号或密码错误',
+          icon: "error"
+        })
+      }
     })
+
   },
 
-  toRegister: function(){
+  toRegister: function () {
     wx.navigateTo({
       url: '../reigister/register',
     })

@@ -1,4 +1,6 @@
 // pages/lesson/lesson.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
@@ -122,7 +124,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    let lessonId = options.lessonId * 1;
+    let r = new request("/tree/getTree",{lessonId: lessonId});
+    r.get().then(res =>{
+      if(res.statusCode == 200){
+        console.log(res.data);
+        this.setData({
+          section:res.data
+        })
+      }
+    })
+  },
 
+  gotoNode: function(val){
+    console.log(val);
   },
 
   /**

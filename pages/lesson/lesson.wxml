@@ -29,18 +29,18 @@
     </view>
     <!-- 章节页面 -->
     <view class="page2" wx:if="{{pageNum == 2}}">
-      <view class="contentBox" wx:for="{{section}}" wx:key="id">
+      <view class="contentBox" wx:for="{{section}}" wx:key="nodeId">
         <!-- 大章的部分 -->
         <view class="section_titleBox">
           <image class="switch_icon" src="../../img/icon/switch_icon.png"></image>
           <image class="line_icon" src="../../img/icon/line_icon.png"></image>
-          <text class="sectionTitleText">{{item.title}}</text>
+          <text class="sectionTitleText">{{item.node}}</text>
         </view>
         <!-- 小节的部分 -->
-        <view class="section_contentBox" wx:for="{{section[index].children}}" wx:key="id">
+        <view class="section_contentBox" wx:for="{{section[index].childrenList}}" wx:for-item="item" wx:key="nodeId">
           <image class="circle_icon" src="../../img/icon/circle_icon.png"></image>
           <image class="line_icon" src="../../img/icon/line_icon.png"></image>
-          <text class="sectionSubtitleText">{{item.subTitle}}</text>
+          <text class="sectionSubtitleText" data-item="{{item}}" bindtap="gotoNode">{{item.node}}</text>
           <view class="separator"></view>
         </view>
       </view>

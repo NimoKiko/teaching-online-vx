@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/messageDetail/messageDetail",
-    "pages/home/home",
     "pages/login/login",
+    "pages/home/home",
+    "pages/messageDetail/messageDetail",
     "pages/homeworkDetail/homeworkDetail",
     "pages/homework/homework",
     "pages/personal/personal",
