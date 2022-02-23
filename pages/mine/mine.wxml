@@ -11,6 +11,11 @@
       <text class="text">课程</text>
       <image class="goto_icon" src="../../img/icon/goto_icon.png"></image>
     </view>
+    <view class="taskBox" bindtap="gotoInvite" wx:if="{{role == 'STUDENT'}}">
+      <image class="lesson_icon" src="../../img/icon/schedule_icon.png"></image>
+      <text class="text">添加课程</text>
+      <image class="goto_icon" src="../../img/icon/goto_icon.png"></image>
+    </view>
   </view>
   <button class="cancel" bindtap="gotoLogin">退出登录</button>
 </view>

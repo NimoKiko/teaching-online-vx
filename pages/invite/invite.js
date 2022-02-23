@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/invite/invite.js
 import request from "../../service/http"
 var app = getApp()
 Page({
@@ -7,37 +7,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    role: "TEACHER",
-  },
-
-  gotoHome: function () {
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
-  },
-
-  gotoInvite: function () {
-    wx.navigateTo({
-      url: '/pages/invite/invite',
-    })
-  },
-  gotoLogin: function () {
-    wx.navigateTo({
-      url: '/pages/login/login',
-    })
-  },
-
-  gotoPersonal: function () {
-    wx.navigateTo({
-      url: '/pages/personal/personal',
-    })
+    stdnum: "",
+    inviteCode: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      stdnum: app.globalData.userId,
+    })
 
+  },
+  //输入邀请码
+  inputCode: function (res) {
+    console.log(res);
+    this.setData({
+      inviteCode: res.detail.value
+    })
+  },
+  sendInvite: function () {
+    let params = {
+      stdnum: this.data.stdnum,
+      inviteCode: this.data.inviteCode
+    }
+    let r = new request("/stdLesson/inviteStd", params);
+    r.get().then(res => {
+      console.log(res);
+      if (res.data) {
+        wx.switchTab({
+          url: '../home/home',
+        })
+      }
+    })
   },
 
   /**
@@ -51,10 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let role = app.globalData.role
-    this.setData({
-      role: role
-    })
+
   },
 
   /**

@@ -39,8 +39,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     let userId = app.globalData.userId;
     let role = app.globalData.role;
+    console.log(role);
     this.setData({
       role: role,
       worknum: userId,
@@ -56,7 +70,7 @@ Page({
         })
       })
     }
-    if(role == "STUDENT"){
+    if (role == "STUDENT") {
       let r = new request("/stdLesson/getStudentByNum", {
         id: userId
       });
@@ -69,20 +83,6 @@ Page({
     }
 
     console.log(userId);
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

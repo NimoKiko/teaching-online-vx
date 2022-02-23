@@ -1,0 +1,6 @@
+<!--pages/invite/invite.wxml-->
+<view class="box">
+  <view class="title">请输入邀请码:</view>
+  <input type="text" class="input" bindinput="inputCode"></input>
+  <button class="btn" style="font-size: 30rpx;line-height: 50rpx;" bindtap="sendInvite">确定</button>
+</view>
