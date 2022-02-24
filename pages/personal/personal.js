@@ -1,24 +1,77 @@
 // pages/personal/personal.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userId: "",
+    updateParams: {
+      userId: "",
+      sex: ""
+    }
   },
 
-  save:function(){
-    wx.switchTab({
-      url: '/pages/mine/mine',
+  change(e) {
+    // console.log(e.detail.value);
+    let sex = "updateParams.sex";
+    this.setData({
+      [sex]: e.detail.value
     })
+  },
+
+  save: function () {
+    let role = app.globalData.role;
+    let params = {};
+    if (role == "STUDENT") {
+      params = {
+        stdnum: this.data.userId,
+        sex: this.data.updateParams.sex
+      }
+      let r = new request("/std/updateSex", params);
+      r.get().then(res => {
+        if (res.data) {
+          wx.switchTab({
+            url: '/pages/mine/mine',
+          })
+        } else {
+          wx.showToast({
+            title: '修改失败',
+          })
+        }
+      })
+    }
+    if (role == "TEACHER") {
+      params = {
+        worknum: this.data.userId,
+        sex: this.data.updateParams.sex
+      }
+      let r = new request("/tea/updateSex", params);
+      r.get().then(res => {
+        if (res.data) {
+          wx.switchTab({
+            url: '/pages/mine/mine',
+          })
+        } else {
+          wx.showToast({
+            title: '修改失败',
+          })
+        }
+      })
+    }
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let userId = app.globalData.userId;
+    this.setData({
+      userId: userId
+    })
   },
 
   /**

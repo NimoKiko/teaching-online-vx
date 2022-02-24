@@ -1,18 +1,16 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/reigister/register",
     "pages/mine/mine",
     "pages/invite/invite",
     "pages/home/home",
-
     "pages/messageDetail/messageDetail",
     "pages/homeworkDetail/homeworkDetail",
     "pages/homework/homework",
     "pages/personal/personal",
-
     "pages/message/message",
     "pages/lesson/lesson",
-    "pages/reigister/register",
     "pages/index/index",
     "pages/logs/logs",
     "pages/section/section",

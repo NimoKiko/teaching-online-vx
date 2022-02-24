@@ -11,9 +11,9 @@
     </view>
     <view class="rowBox" style="margin-top: 30rpx;">
       <text class="Title">性别</text>
-      <radio-group class="radio-group">
-        <radio>男</radio>
-        <radio>女</radio>
+      <radio-group class="radio-group" bindchange="change">
+        <radio value="男">男</radio>
+        <radio value="女">女</radio>
       </radio-group>
     </view>
   </view>

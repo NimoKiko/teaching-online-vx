@@ -6,11 +6,15 @@
   </view>
   <view class="middleBox">
     <view class="account">
-      <input v-model="input" placeholder="请输入学号/工号"></input>
+      <input v-model="input" placeholder="请输入学号/工号" bindinput="inputAccount"></input>
+      <view class="separator"></view>
+    </view>
+    <view class="account">
+      <input v-model="input" placeholder="请输入姓名" bindinput="inputName"></input>
       <view class="separator"></view>
     </view>
     <view class="password">
-      <input v-model="input" placeholder="请输入密码"></input>
+      <input v-model="input" placeholder="请输入密码" bindinput="inputPassword"></input>
       <view class="separator"></view>
     </view>
     <view class="charactorBox">
@@ -32,7 +36,7 @@
       </picker>
     </view>
     <view class="protocol">
-      <radio v-model="protocolRadio" label="1" size="large">已阅读《协议》
+      <radio v-model="protocolRadio" checked="{{check}}" bindtap="checked" label="1" size="large">已阅读《协议》
       </radio>
     </view>
   </view>
