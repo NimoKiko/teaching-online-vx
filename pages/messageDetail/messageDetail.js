@@ -1,21 +1,38 @@
 // pages/messageDetail/messageDetail.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    type:1,
-    content:"成为iu复合物i恶化覅u文化覅u我微博覅u文化覅u乌黑u发和覅u乌黑u凤凰网二v回味u回复货物i俄方我和覅u乌黑i返回维护v分为氛围捏v叫我i恶杰佛为我iu恶化v南无阿回复我v你和我二v你好为uv和我i俄红粉v为红v你还问u发我欸服务呢"
+    type: "",
+    id: null,
+    messageInfo: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     let type = options.type;
+    let id = options.id * 1;
     this.setData({
-      type:type
+      type: type,
+      id: id
+    })
+    let r = new request("/msg/findMessageById", {
+      id: id
+    });
+    r.get().then(res => {
+      console.log(res.data);
+      if (res.data != null) {
+        that.setData({
+          messageInfo: res.data
+        })
+      }
     })
   },
 

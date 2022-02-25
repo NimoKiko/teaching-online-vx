@@ -18,12 +18,12 @@
         <text class="text">课堂</text>
         <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
       </view>
-      <view class="classBox" style="margin-top: 40rpx;" bindtap="gotoHomeworkIndex">
+      <view class="classBox" style="margin-top: 40rpx;" bindtap="gotoSendMessage" wx:if="{{role == 'TEACHER'}}">
         <view class="iconBox">
           <!-- <view class="icon_background"></view> -->
-          <image class="img" src="../../img/icon/paper_icon.png"></image>
+          <image class="img" src="../../img/icon/notice_icon.png"></image>
         </view>
-        <text class="text">作业</text>
+        <text class="text">通知</text>
         <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
       </view>
     </view>

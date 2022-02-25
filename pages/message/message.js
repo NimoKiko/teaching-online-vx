@@ -1,37 +1,39 @@
 // pages/message/message.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    message:[
-      {
-        id:1,
-        type:1,
-        title:"编译原理"
+    userId: "",
+    message: [{
+        id: 1,
+        type: "MESSAGE",
+        title: "编译原理"
       },
       {
-        id:2,
-        type:2,
-        title:"作业通知"
+        id: 2,
+        type: 2,
+        title: "作业通知"
       },
       {
-        id:3,
-        type:1,
-        title:"需求工程"
+        id: 3,
+        type: "MESSAGE",
+        title: "需求工程"
       },
     ]
   },
 
-  gotoMessage:function(e){
-    // console.log(e);
-    let index = e.currentTarget.dataset.num;
-    console.log(index);
-    let type = this.data.message[index].type;
-    console.log(type);
+  gotoMessage: function (e) {
+    console.log(e);
+    let id = e.currentTarget.dataset.item.id;
+    let type = e.currentTarget.dataset.item.type;
+    // console.log(type);
+    // console.log(id);
     wx.navigateTo({
-      url: '/pages/messageDetail/messageDetail?type='+type,
+      url: '/pages/messageDetail/messageDetail?type=' + type + '&id='+id,
     })
   },
 
@@ -54,6 +56,47 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this;
+    this.setData({
+      userId: app.globalData.userId
+    })
+    if (app.globalData.role == "TEACHER") {
+    // if (true) {
+      let r = new request("/msg/queryMessageByWorknum", {
+        worknum: this.data.userId
+        // worknum: "2018001002"
+      });
+      console.log(r);
+      r.get().then(res => {
+        console.log(res.data);
+        if(res.data.length>0){
+          that.setData({
+            message: res.data
+          })
+        } else {
+          that.setData({
+            message: []
+          })
+        }
+      })
+    }
+    if (app.globalData.role == "STUDENT") {
+      // if (true) {
+        let r = new request("/msg/queryMessageByStdnum", {
+          stdnum: this.data.userId
+          // stdnum: "20190123"
+        });
+        console.log(r);
+        r.get().then(res => {
+          console.log(res.data);
+          if(res.data.length>0){
+            that.setData({
+              message: res.data
+            })
+          }
+          
+        })
+      }
 
   },
 

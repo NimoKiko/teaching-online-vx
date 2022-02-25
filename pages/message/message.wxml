@@ -1,13 +1,13 @@
 <!--pages/message/message.wxml-->
 <view class="container">
-  <view class="messageBox" wx:for="{{message}}" wx:key="id" bindtap="gotoMessage" data-num="{{index}}">
-    <view class="textBox_background" wx:if="{{item.type == 1}}">
+  <view class="messageBox" wx:for="{{message}}" wx:for-item="item" wx:key="id"  data-num="{{index}}">
+    <view class="textBox_background" wx:if="{{item.type == 'MESSAGE'}}">
       <text class="titleText">课程</text>
     </view>
-    <view class="textBox_background" wx:if="{{item.type == 2}}" style="background-color: #0EBF8A;">
+    <view class="textBox_background" wx:if="{{item.type == 'TASK'}}" style="background-color: #0EBF8A;">
       <text class="titleText">作业</text>
     </view>
-    <text class="messageText">{{item.title}}</text>
+    <text class="messageText" data-item="{{item}}" bindtap="gotoMessage">{{item.lessonName}}</text>
     <image class="gotoMessage" src="../../img/icon/goto_icon.png"></image>
   </view>
 </view>

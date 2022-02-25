@@ -1,14 +1,14 @@
 <!--pages/messageDetail/messageDetail.wxml-->
 <view class="container">
-  <view class="page1" wx:if="{{type == 1}}">
+  <view class="page1" wx:if="{{type == 'MESSAGE'}}">
     <view class="topBox">
-      <text class="title">标题</text>
-      <text class="sendPeople">发起人</text>
-      <text class="sendTime">2022-1-17 17:39</text>
+      <text class="title">{{messageInfo[0].title}}</text>
+      <text class="sendPeople">{{messageInfo[0].teaname}}</text>
+      <text class="sendTime">{{messageInfo[0].createTime}}</text>
     </view>
     <view class="separator"></view>
     <view class="contentBox">
-      <text class="notice">{{content}}</text>
+      <text class="notice">{{messageInfo[0].content}}</text>
     </view>
   </view>
   <view class="page2" wx:if="{{type == 2}}">

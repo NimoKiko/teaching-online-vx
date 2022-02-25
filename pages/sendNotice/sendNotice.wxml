@@ -1,0 +1,15 @@
+<!--pages/sendNotice/sendNotice.wxml-->
+<view class="container">
+  <view class="content-box">
+    <view class="title">请输入标题：</view>
+    <input type="text" class="input" bindinput="inputTitle"></input>
+  </view>
+  <view class="content-box2">
+    <view class="title">通知内容：</view>
+    <textarea class="text2" maxlength="-1" bindinput="inputMessage"></textarea>
+  </view>
+  <view class="content-box">
+    <button class="btn" bindtap="sendMessage">确 定</button>
+  </view>
+
+</view>

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    lessonId:null,
+    role:"",
     fontColor1: "#2D88CE",
     fontColor2: "#464646",
     fontColor3: "#464646",
@@ -119,6 +121,11 @@ Page({
       url: '/pages/homeworkIndex/homeworkIndex',
     })
   },
+  gotoSendMessage(){
+    wx.navigateTo({
+      url: '/pages/sendNotice/sendNotice?lessonId='+this.data.lessonId,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -126,6 +133,9 @@ Page({
   onLoad: function (options) {
     console.log(options);
     let lessonId = options.lessonId * 1;
+    this.setData({
+      lessonId: lessonId
+    })
     let r = new request("/tree/getTree",{lessonId: lessonId});
     r.get().then(res =>{
       if(res.statusCode == 200){
@@ -152,7 +162,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let role = app.globalData.role;
+    this.setData({
+      role: role
+    })
   },
 
   /**

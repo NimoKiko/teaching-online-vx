@@ -1,21 +1,21 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/message/message",
+    "pages/sendNotice/sendNotice",
+    "pages/home/home",
+    "pages/lesson/lesson",
     "pages/reigister/register",
     "pages/mine/mine",
     "pages/invite/invite",
-    "pages/home/home",
     "pages/messageDetail/messageDetail",
     "pages/homeworkDetail/homeworkDetail",
     "pages/homework/homework",
     "pages/personal/personal",
-    "pages/message/message",
-    "pages/lesson/lesson",
     "pages/index/index",
     "pages/logs/logs",
     "pages/section/section",
     "pages/homeworkIndex/homeworkIndex"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
