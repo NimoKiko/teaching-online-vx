@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/section/section",
     "pages/login/login",
     "pages/message/message",
     "pages/sendNotice/sendNotice",
@@ -14,7 +15,7 @@
     "pages/personal/personal",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/section/section",
+
     "pages/homeworkIndex/homeworkIndex"
   ],
   "window": {

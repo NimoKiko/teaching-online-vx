@@ -148,7 +148,11 @@ Page({
   },
 
   gotoNode: function(val){
-    console.log(val);
+    console.log(val.currentTarget.dataset.item.nodeId);
+    let nodeId = val.currentTarget.dataset.item.nodeId;
+    wx.navigateTo({
+      url: '../section/section?nodeId='+nodeId,
+    })
   },
 
   /**

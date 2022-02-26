@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    file:[
+      {
+        id:1,
+        fileName:"2022春季学期教学安排",
+        fileType:1
+      },
+      {
+        id:2,
+        fileName:"编译原理电子书",
+        fileType:2
+      },
+      {
+        id:3,
+        fileName:"期末考试说明",
+        fileType:1
+      },
+      {
+        id:4,
+        fileName:"第一章 编译原理-教案",
+        fileType:2
+      },
+    ]
+  },
 
+  gotoHomeworkIndex: function(){
+    wx.navigateTo({
+      url: '/pages/homeworkIndex/homeworkIndex',
+    })
   },
 
   /**

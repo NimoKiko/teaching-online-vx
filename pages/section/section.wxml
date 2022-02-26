@@ -1,2 +1,32 @@
 <!--pages/section/section.wxml-->
-<text>pages/section/section.wxml</text>
+<view class="container">
+  <view class="vedio-box">
+    <view class="text">视频</view>
+    <video src="" class="vedio"></video>
+  </view>
+  <view class="separator" style="margin-top: 30rpx;"></view>
+  <view class="file-box">
+    <view class="text" style="margin-top: 20rpx;margin-left: 28rpx;">资料</view>
+    <view class="fileBox" wx:for="{{file}}" wx:key="id">
+      <view class="file_icon_background" wx:if="{{item.fileType == 1}}">
+        <image class="file_icon" src="../../img/icon/word_icon.png"></image>
+      </view>
+      <view class="file_icon_background" wx:if="{{item.fileType == 2}}" style="background-color: #E65C5C;">
+        <image class="file_icon" src="../../img/icon/pdf_icon.png"></image>
+      </view>
+      <text class="fileNameText">{{item.fileName}}</text>
+      <image class="gotoFile" src="../../img/icon/goto_icon.png"></image>
+    </view>
+  </view>
+  <view class="separator" style="margin-top: 30rpx;"></view>
+  <view class="task-box">
+    <view class="classBox" style="margin-top: 30rpx;" bindtap="gotoHomeworkIndex">
+      <view class="iconBox">
+        <image class="img" src="../../img/icon/paper_icon.png"></image>
+      </view>
+      <text class="text2">作业</text>
+      <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
+    </view>
+  </view>
+
+</view>

@@ -10,8 +10,8 @@ Page({
     loginParams: {
       worknum: "",
       password: "",
-      check: false,
-    }
+    },
+    check: false,
   },
   //输入账号
   accountInput: function (res) {
