@@ -1,18 +1,21 @@
 // pages/homework/homework.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    taskName:"作业一",
+    node:"",
+    nodeId:null,
+    lessonId:null,
     deadline:"2022-01-21",
-    status:0,
     score:100
   },
   gotoDetail:function(){
     wx.navigateTo({
-      url: '/pages/homeworkDetail/homeworkDetail',
+      url: '/pages/homeworkDetail/homeworkDetail?nodeId='+this.data.nodeId+'&lessonId='+this.data.lessonId,
     })
   },
 
@@ -20,7 +23,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let nodeId = options.nodeId;
+    let node = options.node;
+    let lessonId = options.lessonId;
+    let stdnum = app.globalData.userId;
+    let r = new request("/task/getTaskSituation",{
+      stdnum: stdnum,
+      nodeId: nodeId,
+    });
+    r.get().then( res => {
+      console.log(res.data);
+      this.setData({
+        score: res.data
+      })
+    })
+    this.setData({
+      node: node,
+      nodeId: nodeId,
+      lessonId: lessonId,
+    })
   },
 
   /**

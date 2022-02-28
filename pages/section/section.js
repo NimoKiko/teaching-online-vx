@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nodeId:null,
+    node:"",
+    lessonId:null,
     file:[
       {
         id:1,
@@ -31,7 +34,7 @@ Page({
 
   gotoHomeworkIndex: function(){
     wx.navigateTo({
-      url: '/pages/homeworkIndex/homeworkIndex',
+      url: '/pages/homework/homework?nodeId='+this.data.nodeId+'&node='+this.data.node+'&lessonId='+this.data.lessonId,
     })
   },
 
@@ -39,7 +42,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(options);
+    let nodeId = options.nodeId * 1;
+    let node = options.node;
+    let lessonId = options.lessonId * 1;
+    this.setData({
+      nodeId: nodeId,
+      node: node,
+      lessonId: lessonId
+    })
+    wx.setNavigationBarTitle({
+      title: node,
+    })
   },
 
   /**

@@ -131,7 +131,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    // console.log(options);
     let lessonId = options.lessonId * 1;
     this.setData({
       lessonId: lessonId
@@ -139,7 +139,7 @@ Page({
     let r = new request("/tree/getTree",{lessonId: lessonId});
     r.get().then(res =>{
       if(res.statusCode == 200){
-        console.log(res.data);
+        // console.log(res.data);
         this.setData({
           section:res.data
         })
@@ -148,10 +148,10 @@ Page({
   },
 
   gotoNode: function(val){
-    console.log(val.currentTarget.dataset.item.nodeId);
     let nodeId = val.currentTarget.dataset.item.nodeId;
+    let node = val.currentTarget.dataset.item.node;
     wx.navigateTo({
-      url: '../section/section?nodeId='+nodeId,
+      url: '../section/section?nodeId='+nodeId+'&node='+node+'&lessonId='+this.data.lessonId,
     })
   },
 

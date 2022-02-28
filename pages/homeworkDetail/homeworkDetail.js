@@ -1,4 +1,6 @@
 // pages/homeworkDetail/homeworkDetail.js
+import request from "../../service/http"
+var app = getApp()
 Page({
 
   /**
@@ -6,6 +8,7 @@ Page({
    */
   data: {
     num:0,
+    choiceList:[],
     homework:[
       {
         id:1,
@@ -60,14 +63,17 @@ Page({
         right:"a",
         end:true
       },
-    ]
+    ],
+    rightCount: 0,
+    stdnum:"",
+    nodeId:0,
   },
 
   preClick:function(){
     if(this.data.num>0){
       let num = this.data.num - 1;
       this.setData({
-        num:num
+        num: num,
       })
     }
   },
@@ -77,11 +83,36 @@ Page({
       num:num
     })
   },
+  taskSubmit(){
+    console.log(this.data.choiceList);
+    let correctCount = 0;
+    for(let index in this.data.homework){
+      if(this.data.homework[index].correct == this.data.choiceList[index]){
+        correctCount++;
+      }
+    }
+    console.log(correctCount);
+    let r = new request("/stdLesson/judgeScore",{
+      correctCount: correctCount,
+      stdnum: this.data.stdnum,
+      nodeId: this.data.nodeId
+    })
+    console.log(r);
+    r.get().then(res => {
+      console.log(res.data);
+      if(res.data){
+        wx.switchTab({
+          url: '../home/home',
+        })
+      }
+    })
+  },
   aClick:function(){
     let achecked = "homework["+this.data.num+"].achecked";
     let bchecked = "homework["+this.data.num+"].bchecked";
     let cchecked = "homework["+this.data.num+"].cchecked";
     let dchecked = "homework["+this.data.num+"].dchecked";
+    this.data.choiceList[this.data.num] = 'a';
     this.setData({
       [achecked]:true,
       [bchecked]:false,
@@ -94,6 +125,7 @@ Page({
     let bchecked = "homework["+this.data.num+"].bchecked";
     let cchecked = "homework["+this.data.num+"].cchecked";
     let dchecked = "homework["+this.data.num+"].dchecked";
+    this.data.choiceList[this.data.num] = 'b';
     this.setData({
       [achecked]:false,
       [bchecked]:true,
@@ -106,6 +138,7 @@ Page({
     let bchecked = "homework["+this.data.num+"].bchecked";
     let cchecked = "homework["+this.data.num+"].cchecked";
     let dchecked = "homework["+this.data.num+"].dchecked";
+    this.data.choiceList[this.data.num] = 'c';
     this.setData({
       [achecked]:false,
       [bchecked]:false,
@@ -118,6 +151,7 @@ Page({
     let bchecked = "homework["+this.data.num+"].bchecked";
     let cchecked = "homework["+this.data.num+"].cchecked";
     let dchecked = "homework["+this.data.num+"].dchecked";
+    this.data.choiceList[this.data.num] = 'd';
     this.setData({
       [achecked]:false,
       [bchecked]:false,
@@ -129,7 +163,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let stdnum = app.globalData.userId;
+    let nodeId = options.nodeId * 1;
+    let lessonId = options.lessonId * 1;
+    this.setData({
+      stdnum: stdnum,
+      nodeId: nodeId,
+      lessonId: lessonId
+    })
+    let r = new request("/task/getTask",{nodeId:nodeId});
+    r.get().then(res => {
+      // console.log(res.data);
+      let taskList = res.data;
+      let length = taskList.length;
+      let list = [];
+      for(let index in taskList){
+        // console.log(index);
+        taskList[index].taskId = index*1 + 1;
+        if(index*1+1 == length) {
+          taskList[index].end = true;
+        }
+        list.push("");
+      }
+      console.log(taskList);
+      this.setData({
+        homework: taskList,
+        choiceList:list,
+      })
+    })
   },
 
   /**

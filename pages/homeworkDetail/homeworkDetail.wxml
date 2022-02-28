@@ -1,7 +1,7 @@
 <!--pages/homeworkDetail/homeworkDetail.wxml-->
 <view class="container">
   <view class="titleBox">
-    <text class="num">{{homework[num].id}}.(单选题)</text>
+    <text class="num">{{homework[num].taskId}}.(单选题)</text>
     <text class="context">{{homework[num].text}}</text>
   </view>
   <view class="choice">
@@ -9,12 +9,12 @@
       <radio bindtap="aClick" checked="{{homework[num].achecked}}">A.{{homework[num].a}}</radio>
       <radio bindtap="bClick" checked="{{homework[num].bchecked}}">B.{{homework[num].b}}</radio>
       <radio bindtap="cClick" checked="{{homework[num].cchecked}}">C.{{homework[num].c}}</radio>
-      <radio bindtap="dClick" checked="{{homework[num].dchecked}}">D.{{homework[num].c}}</radio>
+      <radio bindtap="dClick" checked="{{homework[num].dchecked}}">D.{{homework[num].d}}</radio>
     </radio-group>
   </view>
   <view class="bottomBox">
     <button class="pre" hover-class="hover" bindtap="preClick">上一题</button>
     <button class="next" hover-class="hover" wx:if="{{!homework[num].end}}" bindtap="nextClick">下一题</button>
-    <button class="next" hover-class="hover" wx:if="{{homework[num].end}}">提交</button>
+    <button class="next" hover-class="hover" wx:if="{{homework[num].end}}" bindtap="taskSubmit">提交</button>
   </view>
 </view>
