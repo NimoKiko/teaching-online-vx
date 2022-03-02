@@ -18,8 +18,8 @@
       <image class="gotoFile" src="../../img/icon/goto_icon.png"></image>
     </view>
   </view>
-  <view class="separator" style="margin-top: 30rpx;"></view>
-  <view class="task-box">
+  <view class="separator" style="margin-top: 30rpx;" wx:if="{{role == 'STUDENT'}}"></view>
+  <view class="task-box" wx:if="{{role == 'STUDENT'}}">
     <view class="classBox" style="margin-top: 30rpx;" bindtap="gotoHomeworkIndex">
       <view class="iconBox">
         <image class="img" src="../../img/icon/paper_icon.png"></image>

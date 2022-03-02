@@ -26,6 +26,13 @@
         <text class="text">通知</text>
         <image class="gotoIcon" src="../../img/icon/goto_icon.png"></image>
       </view>
+      <view class="classBox" style="margin-top: 40rpx;" bindtap="endClass" wx:if="{{role == 'TEACHER'}}">
+        <view class="iconBox" style="background-color: #E65C5C;">
+          <!-- <view class="icon_background"></view> -->
+          <image class="img" src="../../img/icon/end_class.png"></image>
+        </view>
+        <text class="text">结课</text>
+      </view>
     </view>
     <!-- 章节页面 -->
     <view class="page2" wx:if="{{pageNum == 2}}">

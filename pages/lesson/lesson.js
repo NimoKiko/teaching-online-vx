@@ -72,7 +72,8 @@ Page({
         fileName:"第一章 编译原理-教案",
         fileType:2
       },
-    ]
+    ],
+    isEnd: 0,
 
   },
 
@@ -136,6 +137,14 @@ Page({
     this.setData({
       lessonId: lessonId
     })
+    //获取这门课是否已经结课（0为未结课；1为已结课）
+    let p = new request("/lesson/isEnd",{lessonId: lessonId});
+    p.get().then( res => {
+      console.log(res.data);
+      this.setData({
+        isEnd: res.data
+      })
+    })
     let r = new request("/tree/getTree",{lessonId: lessonId});
     r.get().then(res =>{
       if(res.statusCode == 200){
@@ -145,6 +154,35 @@ Page({
         })
       }
     })
+  },
+  endClass() {
+    let that = this;
+    if(this.data.isEnd == 0){
+      wx.showModal({
+      title: '结课提示',
+      content: '请确认是否结课？',
+      success (res) {
+        if (res.confirm) {
+          let r = new request("/tea/endClass",{
+            lessonId: that.data.lessonId
+          });
+          r.get().then(res => {
+            console.log(res.data);
+          })
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    }
+    if(this.data.isEnd == 1){
+      wx.showToast({
+        title: '课程已结束',
+        icon:'error'
+      })
+    }
+    
   },
 
   gotoNode: function(val){

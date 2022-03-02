@@ -1,4 +1,5 @@
 // pages/section/section.js
+var app = getApp()
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     nodeId:null,
     node:"",
     lessonId:null,
+    role:"",
     file:[
       {
         id:1,
@@ -46,10 +48,12 @@ Page({
     let nodeId = options.nodeId * 1;
     let node = options.node;
     let lessonId = options.lessonId * 1;
+    let role = app.globalData.role;
     this.setData({
       nodeId: nodeId,
       node: node,
-      lessonId: lessonId
+      lessonId: lessonId,
+      role: role,
     })
     wx.setNavigationBarTitle({
       title: node,
