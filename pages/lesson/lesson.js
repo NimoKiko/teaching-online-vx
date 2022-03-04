@@ -127,6 +127,24 @@ Page({
       url: '/pages/sendNotice/sendNotice?lessonId='+this.data.lessonId,
     })
   },
+  openFile(item){
+    // console.log(item);
+    let fileInfo = item.currentTarget.dataset.item;
+    console.log(fileInfo);
+    wx.downloadFile({
+      // 示例 url，并非真实存在
+      url: fileInfo.fileUrl,
+      success: function (res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          success: function (res) {
+            console.log('打开文档成功')
+          }
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -137,6 +155,15 @@ Page({
     this.setData({
       lessonId: lessonId
     })
+    //获取课程资料
+    let q = new request("/file/getFileByLessonId",{
+      lessonId: lessonId
+    })
+    q.get().then(res => {
+      this.setData({
+        file: res.data
+      })
+    })
     //获取这门课是否已经结课（0为未结课；1为已结课）
     let p = new request("/lesson/isEnd",{lessonId: lessonId});
     p.get().then( res => {
@@ -145,6 +172,7 @@ Page({
         isEnd: res.data
       })
     })
+    //湖片区章节树
     let r = new request("/tree/getTree",{lessonId: lessonId});
     r.get().then(res =>{
       if(res.statusCode == 200){

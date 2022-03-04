@@ -1,4 +1,5 @@
 // pages/section/section.js
+import request from "../../service/http"
 var app = getApp()
 Page({
 
@@ -33,6 +34,24 @@ Page({
       },
     ]
   },
+  openFile(item){
+    // console.log(item);
+    let fileInfo = item.currentTarget.dataset.item;
+    console.log(fileInfo);
+    wx.downloadFile({
+      // 示例 url，并非真实存在
+      url: fileInfo.fileUrl,
+      success: function (res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          success: function (res) {
+            console.log('打开文档成功')
+          }
+        })
+      }
+    })
+  },
 
   gotoHomeworkIndex: function(){
     wx.navigateTo({
@@ -49,6 +68,15 @@ Page({
     let node = options.node;
     let lessonId = options.lessonId * 1;
     let role = app.globalData.role;
+    let r = new request("/file/getFileByNodeId",{
+      nodeId: nodeId
+    })
+    r.get().then( res => {
+      console.log(res.data);
+      this.setData({
+        file: res.data
+      })
+    })
     this.setData({
       nodeId: nodeId,
       node: node,

@@ -7,14 +7,14 @@
   <view class="separator" style="margin-top: 30rpx;"></view>
   <view class="file-box">
     <view class="text" style="margin-top: 20rpx;margin-left: 28rpx;">资料</view>
-    <view class="fileBox" wx:for="{{file}}" wx:key="id">
-      <view class="file_icon_background" wx:if="{{item.fileType == 1}}">
+    <view class="fileBox" wx:for="{{file}}" wx:for-item="item" wx:key="id" >
+      <view class="file_icon_background" wx:if="{{item.fileType == 'word'}}">
         <image class="file_icon" src="../../img/icon/word_icon.png"></image>
       </view>
-      <view class="file_icon_background" wx:if="{{item.fileType == 2}}" style="background-color: #E65C5C;">
+      <view class="file_icon_background" wx:if="{{item.fileType == 'pdf'}}" style="background-color: #E65C5C;">
         <image class="file_icon" src="../../img/icon/pdf_icon.png"></image>
       </view>
-      <text class="fileNameText">{{item.fileName}}</text>
+      <text class="fileNameText" data-item="{{item}}" bindtap="openFile">{{item.fileName}}</text>
       <image class="gotoFile" src="../../img/icon/goto_icon.png"></image>
     </view>
   </view>

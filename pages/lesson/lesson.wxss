@@ -200,6 +200,9 @@
   margin-left: 18rpx;
 }
 .fileNameText{
+  /* border: 1px solid red; */
+  width: 80%;
+  height: 60%;
   position: absolute;
   top: 35rpx;
   left: 130rpx;
