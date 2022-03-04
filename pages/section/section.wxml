@@ -2,12 +2,12 @@
 <view class="container">
   <view class="vedio-box">
     <view class="text">视频</view>
-    <video src="" class="vedio"></video>
+    <video src="{{vedioUrl}}" class="vedio"></video>
   </view>
   <view class="separator" style="margin-top: 30rpx;"></view>
   <view class="file-box">
     <view class="text" style="margin-top: 20rpx;margin-left: 28rpx;">资料</view>
-    <view class="fileBox" wx:for="{{file}}" wx:for-item="item" wx:key="id" >
+    <view class="fileBox" wx:for="{{file}}" wx:for-item="item" wx:key="id" wx:if="{{item.fileType == 'word' || item.fileType == 'pdf'}}">
       <view class="file_icon_background" wx:if="{{item.fileType == 'word'}}">
         <image class="file_icon" src="../../img/icon/word_icon.png"></image>
       </view>

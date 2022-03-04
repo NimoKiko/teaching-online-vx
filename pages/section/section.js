@@ -32,7 +32,8 @@ Page({
         fileName:"第一章 编译原理-教案",
         fileType:2
       },
-    ]
+    ],
+    vedioUrl:""
   },
   openFile(item){
     // console.log(item);
@@ -64,6 +65,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options);
+    let that = this;
     let nodeId = options.nodeId * 1;
     let node = options.node;
     let lessonId = options.lessonId * 1;
@@ -73,8 +75,16 @@ Page({
     })
     r.get().then( res => {
       console.log(res.data);
+      let file = res.data;
+      for(let val of file){
+        if(val.fileType == "vedio"){
+          that.setData({
+            vedioUrl: val.fileUrl,
+          })
+        }
+      }
       this.setData({
-        file: res.data
+        file: file
       })
     })
     this.setData({
