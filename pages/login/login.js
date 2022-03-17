@@ -53,6 +53,9 @@ Page({
         if (res.data == "STUDENT") {
           app.globalData.role = "STUDENT";
         }
+        if (res.data == "ASSISTANT") {
+          app.globalData.role = "ASSISTANT";
+        }
         if (that.data.check) {
           app.globalData.userId = that.data.loginParams.worknum;
           wx.switchTab({

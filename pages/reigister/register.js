@@ -97,7 +97,8 @@ Page({
       if (this.data.check == true) {
         let r = new request("/std/addOrUpdate", params);
         console.log(r);
-        r.post(res => {
+        r.post().then(res => {
+          console.log(res);
           console.log(res.data);
           if (res.data) {
             wx.showToast({

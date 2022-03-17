@@ -25,7 +25,7 @@ Page({
     ],
     role: "",
     worknum: "",
-
+    studentInfo:[],
   },
   gotoLesson: function (res) {
     console.log(res.currentTarget.dataset.item.lessonId);
@@ -78,6 +78,15 @@ Page({
         console.log(res.data);
         this.setData({
           lesson: res.data
+        })
+      })
+    }
+    if(role == "ASSISTANT") {
+      let r = new request("/stdLesson/getList");
+      r.get().then(res => {
+        console.log(res.data);
+        this.setData({
+          studentInfo: res.data
         })
       })
     }

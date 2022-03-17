@@ -52,3 +52,21 @@
   right: 40rpx;
   top: 65rpx;
 }
+.assistantBox{
+  width: 90%;
+  background-color: white;
+  border-radius: 12rpx;
+  background-color: white;
+  margin-top: 40rpx;
+  box-shadow: 0 4rpx 12rpx 0rpx #838383;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10rpx;
+  padding-bottom: 10rpx;
+}

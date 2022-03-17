@@ -74,6 +74,8 @@ Page({
       },
     ],
     isEnd: 0,
+    classStatus:"上课",
+    picUrl:"../../img/icon/start_icon.png"
 
   },
 
@@ -150,6 +152,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     // console.log(options);
     let lessonId = options.lessonId * 1;
     this.setData({
@@ -182,7 +185,26 @@ Page({
         })
       }
     })
+    //获取课程上课情况
+    let o = new request("/lesson/currentStatus",{lessonId:lessonId});
+    o.get().then(res =>{
+      if(res.data == 1){
+        let picUrl = '../../img/icon/stop_icon.png';
+        that.setData({
+          picUrl: picUrl,
+          classStatus:"下课"
+        })
+      }
+      if(res.data == 0){
+        let picUrl = "../../img/icon/start_icon.png";
+        that.setData({
+          picUrl: picUrl,
+          classStatus:"上课"
+        })
+      }
+    })
   },
+  //结课按钮
   endClass() {
     let that = this;
     if(this.data.isEnd == 0){
@@ -211,6 +233,59 @@ Page({
       })
     }
     
+  },
+  startOrStopClass(){
+    let that = this;
+    if(this.data.picUrl == '../../img/icon/start_icon.png'){
+      let picUrl = '../../img/icon/stop_icon.png';
+      that.setData({
+        picUrl: picUrl,
+        classStatus:"下课"
+      })
+      console.log(that.data.lessonId);
+      let r = new request("/lesson/isOnClass",{
+        lessonId: that.data.lessonId
+      })
+      r.get().then(res => {
+        console.log(res.data);
+      })
+    }
+    else if(this.data.picUrl == '../../img/icon/stop_icon.png'){
+      let picUrl = "../../img/icon/start_icon.png";
+      that.setData({
+        picUrl: picUrl,
+        classStatus:"上课"
+    })
+    console.log(that.data.lessonId);
+    let r = new request("/lesson/isOnClass",{
+      lessonId: that.data.lessonId
+    })
+    r.get().then(res => {
+      console.log(res.data);
+    })
+    }
+
+  },
+  //签到按钮
+  signIn(){
+    let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否确认今日课程的打卡？',
+      success (res) {
+        if (res.confirm) {
+          let r = new request("/stdLesson/signIn",{
+            stdnum: app.globalData.userId,
+            lessonId: that.data.lessonId
+          })
+          r.get().then(res => {
+            console.log(res.data);
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   gotoNode: function(val){
